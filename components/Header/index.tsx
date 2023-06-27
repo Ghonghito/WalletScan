@@ -10,11 +10,7 @@ interface HeaderTypes {
 const Header = ({ isResult, walletAddress }: HeaderTypes) => {
   return (
     <div>
-      {!isResult ? (
-        <div className='flex justify-end p-3'>
-          <DarkModeButton />
-        </div>
-      ) : (
+      {isResult ? (
         <div>
           <div className='border-b border-lightBorder dark:border-darkBorder'>
             <div className='flex items-center justify-between p-3'>
@@ -36,6 +32,12 @@ const Header = ({ isResult, walletAddress }: HeaderTypes) => {
           </div>
           <div className='flex md:hidden px-3 mt-2 w-full'>
             <SearchBox value={walletAddress} isSmall={true} />
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className='flex justify-end p-3'>
+            <DarkModeButton />
           </div>
         </div>
       )}
