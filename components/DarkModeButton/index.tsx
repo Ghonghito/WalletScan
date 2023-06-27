@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from '@/components/Icons'
+import { useEffect, useState } from 'react'
 
 const DarkModeButton = () => {
   const [isDarkMode, setIsDarkMode] = useState(false)

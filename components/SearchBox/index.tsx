@@ -1,11 +1,11 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import SearchButton from '../SearchButton'
+import { SearchIcon } from '../Icons'
 
 interface SearchBoxTypes {
   className?: string
   isSmall?: boolean
-  value?: string
+  value?: string | any
 }
 
 const SearchBox = ({ className = '', isSmall, value }: SearchBoxTypes) => {
@@ -13,28 +13,51 @@ const SearchBox = ({ className = '', isSmall, value }: SearchBoxTypes) => {
 
   const handleNavigate = () => {
     const getWalletAddress = (document.getElementById('walletAddress') as HTMLInputElement).value
-    console.log(getWalletAddress)
     router.push(`/address/${getWalletAddress}`)
   }
 
   return (
     <div className='w-full'>
       {!isSmall ? (
-        <div className='flex items-center'>
+        <div className='flex'>
           <input
             id='walletAddress'
             placeholder='Search for addresses and ENS names'
-            className={`py-3 px-5 rounded-l-full bg-lightBackground dark:bg-[#052D48]  focus:outline-none text-black dark:text-[#A9BDC5] border dark:border-0 w-full${className}`}
+            className={`h-[51px] px-5 rounded-l-3xl bg-lightBackground dark:bg-[#052D48] text-sm focus:outline-none focus:bg-transparent text-black dark:text-[#A9BDC5] border dark:border-0 w-full${className}`}
           />
-          <SearchButton onClick={() => handleNavigate()} />
+          <button className='py-2 text-white bg-[#337AFE] px-5 rounded-r-3xl hover:shadow-md shadow-[#337AFE] text-sm' onClick={() => handleNavigate()}>
+            {isSmall ? (
+              <div className=''>
+                <SearchIcon className='w-3 h-3' />
+              </div>
+            ) : (
+              <div>
+                <div className='hidden md:flex'>Search</div>
+                <div className='flex md:hidden'>
+                  <SearchIcon className='w-4 h-4' />
+                </div>
+              </div>
+            )}
+          </button>
         </div>
       ) : (
         <div>
-          <div className='flex items-center'>
-            <input id='walletAddress' className='py-2 px-5 rounded-l-full bg-lightBackground dark:bg-[#052D48] focus:outline-none text-black dark:text-[#A9BDC5] border dark:border-0 w-full' placeholder='Search for addresses and ENS names' />
-            <div className='flex items-center pr-3 text-sm'>
-              <SearchButton onClick={() => handleNavigate()} isSmall searchIcon />
-            </div>
+          <div className='flex'>
+            <input
+              defaultValue={value}
+              id='walletAddress'
+              className='h-[43px] pl-5 rounded-l-3xl bg-lightBackground dark:bg-[#052D48] focus:outline-none text-sm text-black dark:text-[#A9BDC5] border dark:border-0 w-full'
+              placeholder='Search for addresses and ENS names'
+            />
+            <button className='py-2 text-white bg-[#337AFE] px-5 rounded-r-3xl hover:shadow-md shadow-[#337AFE]' onClick={() => handleNavigate()}>
+              {isSmall ? (
+                <div className=''>
+                  <SearchIcon className='w-3 h-3' />
+                </div>
+              ) : (
+                'Search'
+              )}
+            </button>
           </div>
         </div>
       )}
