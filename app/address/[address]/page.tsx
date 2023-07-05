@@ -1,19 +1,19 @@
 'use client'
-import Header from '@/components/Header'
 import WalletChain from '@/components/WalletChain'
 import { getActiveChains } from '@/utils/getActiveChain'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function Page() {
-  const [isLoading, setIsLoading] = useState<boolean>(Boolean)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [walletData, setWalletData] = useState<any>([])
   const router = usePathname()
   const address = router.replace('/address/', '')
-  document.title = address
+
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true)
+      window.document.title = address
       const data = await getActiveChains(address)
       setWalletData(data)
       setIsLoading(false)
@@ -23,7 +23,6 @@ export default function Page() {
 
   return (
     <div>
-      <Header isResult={true} walletAddress={address} />
       {!isLoading ? (
         <div className='px-3 lg:px-48 mt-6 space-y-8 mb-5'>
           {Object.keys(walletData).length > 0 && (

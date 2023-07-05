@@ -1,13 +1,26 @@
+'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import DarkModeButton from '../DarkModeButton'
 import SearchBox from '../SearchBox'
 
-interface HeaderTypes {
-  isResult?: boolean
-  walletAddress?: string
-}
+const Header = () => {
+  const [isResult, setIsResult] = useState<boolean>(false)
+  const [walletAddress, setWalletAddress] = useState<string>('')
+  const router = usePathname()
+  const hidden = router.startsWith('/address/')
 
-const Header = ({ isResult, walletAddress }: HeaderTypes) => {
+  useEffect(() => {
+    if (hidden) {
+      setIsResult(true)
+      const address = router.replace('/address/', '')
+      setWalletAddress(address)
+    } else {
+      setIsResult(false)
+    }
+  }, [hidden])
+
   return (
     <div>
       {isResult ? (

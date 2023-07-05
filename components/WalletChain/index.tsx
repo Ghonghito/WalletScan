@@ -34,12 +34,10 @@ const WalletChain = ({ isLoading, walletAddress, explorerName, explorerLogo, exp
         </div>
       ) : (
         <div>
-          <div>
-            <div className='animate-pulse w-20 h-3 bg-gray-300 rounded-md'></div>
-            <div className='flex items-center gap-2 mt-2'>
-              <div className='animate-pulse w-6 h-6 rounded-full bg-gray-300'></div>
-              <div className='animate-pulse w-48 h-3 bg-gray-300 rounded-md'></div>
-            </div>
+          <div className='animate-pulse w-20 h-3 bg-gray-300 rounded-md'></div>
+          <div className='flex items-center gap-2 mt-2'>
+            <div className='animate-pulse w-6 h-6 rounded-full bg-gray-300'></div>
+            <div className='animate-pulse w-48 h-3 bg-gray-300 rounded-md'></div>
           </div>
         </div>
       )}
