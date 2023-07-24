@@ -32,7 +32,7 @@ export default function Page() {
                   <div>
                     <div className='mb-4'>
                       <p className='text-xs text-[#B1B8BF]'>
-                        Address <span className='font-bold'>{address}</span> found in {walletData.length} different chains.{' '}
+                        Address <span className='font-bold'>{address}</span> found in {walletData.data.length} different chains.{' '}
                       </p>
                     </div>
                     <div className='space-y-8'>
