@@ -22,8 +22,8 @@ const SearchBox = ({ className = '', isSmall, value }: SearchBoxTypes) => {
         <div className='flex'>
           <input
             id='walletAddress'
-            placeholder='Search for addresses and ENS names'
-            className={`h-[51px] px-5 rounded-l-3xl bg-lightBackground dark:bg-[#052D48] text-sm focus:outline-none focus:bg-transparent text-black dark:text-[#A9BDC5] border dark:border-0 w-full${className}`}
+            placeholder='Search for addresses'
+            className={`w-full h-[51px] px-5 rounded-l-3xl bg-lightBackground dark:bg-[#052D48] text-sm focus:outline-none focus:bg-transparent text-black dark:text-[#A9BDC5] border dark:border-0 ${className}`}
           />
           <button className='py-2 text-white bg-[#337AFE] px-5 rounded-r-3xl hover:shadow-md shadow-[#337AFE] text-sm' onClick={() => handleNavigate()}>
             {isSmall ? (

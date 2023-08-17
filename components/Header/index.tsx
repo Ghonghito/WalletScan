@@ -28,7 +28,7 @@ const Header = () => {
           <div className='border-b border-lightBorder dark:border-darkBorder'>
             <div className='flex items-center justify-between p-3'>
               <div className='flex items-center gap-9'>
-                <Link href='/' replace>
+                <Link href='/'>
                   <div className='flex gap-2 items-center'>
                     <div className='w-[23px] h-[23px] bg-[#011E35] dark:bg-white flex items-center justify-center'>
                       <h2 className='text-white dark:text-[#011E35] text-base font-bold'>W</h2>

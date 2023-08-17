@@ -10,10 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <title>Explore Decentralized Web</title>
-      <body className='flex justify-between flex-col min-h-screen bg-lightBackground dark:bg-darkBackground'>
+      <body className='bg-lightBackground dark:bg-darkBackground flex flex-col min-h-screen'>
         <Header />
-        <div>{children}</div>
+        <div className='flex-grow flex items-center justify-center'>
+          <main>{children}</main>
+        </div>
         <Footer />
       </body>
     </html>
